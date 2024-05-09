@@ -3,5 +3,6 @@ root = true
 [*.tsx]
 indent_size = 2
 
-[*.ts]
+[src/**/*.ts]
 indent_size = 4
+

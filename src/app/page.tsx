@@ -1,6 +1,6 @@
-import { ModeToggle } from '@/components/ModeToggle'
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { ModeToggle } from "@/components/ModeToggle"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
             target='_blank'
             rel='noopener noreferrer'
           >
-            By{' '}
+            By{" "}
             <Image
               src='/vercel.svg'
               alt='Vercel Logo'
