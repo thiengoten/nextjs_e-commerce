@@ -1,0 +1,46 @@
+[
+  {
+    "schemaName": "public",
+    "tableName": "posts_table",
+    "predictions": [
+      {
+        "input": "public posts_table content",
+        "column": "content",
+        "shape": "POST_BODY",
+        "confidence": 0.5535928010940552,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public posts_table title",
+        "column": "title",
+        "shape": "POST_TITLE",
+        "confidence": 0.8516840934753418,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "public",
+    "tableName": "users_table",
+    "predictions": [
+      {
+        "input": "public users_table email",
+        "column": "email",
+        "shape": "EMAIL",
+        "confidence": 0.9973552227020264,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public users_table name",
+        "column": "name",
+        "shape": "PERSON_FULL_NAME",
+        "confidence": 0.2644593119621277,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  }
+]

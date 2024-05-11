@@ -1,6 +1,7 @@
 import { ModeToggle } from "@/components/ModeToggle"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -30,6 +31,9 @@ export default function Home() {
             />
           </a>
         </div>
+        <Button className='fixed bottom-0 right-0 m-8 lg:static lg:m-0 lg:mr-8'>
+          <Link href='/posts'>See Post</Link>
+        </Button>
       </div>
     </main>
   )
