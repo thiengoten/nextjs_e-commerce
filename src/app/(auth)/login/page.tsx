@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { login } from "@/app/(auth)/login/actions"
 
 export default function Page() {
   return (
@@ -21,7 +22,7 @@ export default function Page() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className='grid gap-4'>
+        <form className='grid gap-4'>
           <div className='grid gap-2'>
             <Label htmlFor='email'>Email</Label>
             <Input
@@ -43,10 +44,10 @@ export default function Page() {
           <Button type='submit' className='w-full'>
             Login
           </Button>
-          <Button variant='outline' className='w-full'>
+          <Button variant='outline' className='w-full' formAction={login}>
             Login with Google
           </Button>
-        </div>
+        </form>
         <div className='mt-4 text-center text-sm'>
           Don&apos;t have an account?{" "}
           <Link href='/register' className='underline'>

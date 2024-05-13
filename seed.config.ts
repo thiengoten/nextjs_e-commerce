@@ -1,3 +1,4 @@
+import "./envConfig.ts"
 import { SeedPostgres } from "@snaplet/seed/adapter-postgres"
 import { defineConfig } from "@snaplet/seed/config"
 import postgres from "postgres"
