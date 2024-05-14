@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -11,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { login } from "@/app/(auth)/login/actions"
+import SubmitButton from "@/components/SummitButton"
 
 export default function Page() {
   return (
@@ -22,7 +24,7 @@ export default function Page() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form className='grid gap-4'>
+        <form className='grid gap-4' action={login}>
           <div className='grid gap-2'>
             <Label htmlFor='email'>Email</Label>
             <Input
@@ -41,9 +43,7 @@ export default function Page() {
             </div>
             <Input id='password' type='password' required />
           </div>
-          <Button type='submit' className='w-full'>
-            Login
-          </Button>
+          <SubmitButton />
           <Button variant='outline' className='w-full' formAction={login}>
             Login with Google
           </Button>

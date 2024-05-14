@@ -4,26 +4,31 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 import { createClient } from "@/utils/supabase/server"
+import { formSchema } from "@/utils/formSchema"
 
-export async function signup(formData: FormData) {
-    const supabase = createClient()
+export type FormState = {
+    message: string
+}
+export async function signup(
+    prevState: FormState,
+    formData: FormData,
+): Promise<FormState> {
+    return new Promise((resolve, reject) => {
+        // Simulate a delay with setTimeout
+        setTimeout(() => {
+            const convertedFormData = Object.fromEntries(formData)
+            const parsed = formSchema.safeParse(convertedFormData)
+            console.log("🚀 ~ signup ~ parsed:", parsed)
 
-    // type-casting here for convenience
-    // in practice, you should validate your inputs
-    const data = {
-        email: formData.get("email") as string,
-        password: formData.get("password") as string,
-    }
-    console.log("🚀 ~ signup ~ data:", data)
+            // Add your signup logic here...
 
-    const { error } = await supabase.auth.signUp(data)
-    console.log("🚀 ~ signup ~ error:", error)
+            // If signup is successful, resolve the promise
+            resolve({
+                message: "done",
+            })
 
-    if (error) {
-        console.log(error)
-        redirect("/error")
-    }
-
-    revalidatePath("/")
-    redirect("/")
+            // If there's an error during signup, reject the promise
+            // reject(new Error('Signup failed'));
+        }, 2000) // 2 seconds delay
+    })
 }
