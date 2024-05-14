@@ -3,7 +3,6 @@ import React from "react"
 
 export default async function Page() {
   const posts = await getPosts()
-  console.log("🚀 ~ Page ~ Hekki:", posts)
   return (
     <div>
       {posts.map((post) => (

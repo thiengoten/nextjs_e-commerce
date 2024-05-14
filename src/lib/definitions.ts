@@ -1,4 +1,4 @@
-export type PostsDTO = {
+export interface PostsDTO {
     id: number
     title: string
     content: string
