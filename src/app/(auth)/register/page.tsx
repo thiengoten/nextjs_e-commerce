@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { signup } from "@/app/(auth)/register/actions"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -22,16 +21,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormState } from "react-dom"
 import { formSchema } from "@/utils/formSchema"
 import { z } from "zod"
 import { useRef } from "react"
+import { signupAction } from "@/app/(auth)/register/actions"
 
 export default function Page() {
   const formRef = useRef<HTMLFormElement>(null)
-  const { pending } = useFormStatus()
 
-  const [state, formAction] = useFormState(signup, {
+  const [state, formAction] = useFormState(signupAction, {
     message: "",
   })
 
@@ -42,7 +41,7 @@ export default function Page() {
       password: "",
     },
   })
-  //TODO: refactor submit button to a separate component
+
   return (
     <Card className='mx-auto max-w-sm'>
       <CardHeader>
@@ -57,18 +56,14 @@ export default function Page() {
             className='grid gap-4'
             action={formAction}
             ref={formRef}
-            onSubmit={form.handleSubmit(() => formRef.current?.submit())}
+            onSubmit={form.handleSubmit((data, event) => {
+              event?.preventDefault()
+              const formData = new FormData()
+              formData.append("email", data.email)
+              formData.append("password", data.password)
+              signupAction(state, formData)
+            })}
           >
-            {/* <div className='grid gap-2'>
-              <Label htmlFor='email'>Email</Label>
-              <Input
-                id='email'
-                type='email'
-                name='email'
-                placeholder='m@example.com'
-                required
-              />
-            </div> */}
             <FormField
               control={form.control}
               name='email'
@@ -95,13 +90,16 @@ export default function Page() {
                 </FormItem>
               )}
             />
-            <Button type='submit' className='w-full' disabled={pending}>
-              {pending && <Loader2 />}
+            <Button
+              type='submit'
+              className='w-full'
+              disabled={form.formState.isSubmitSuccessful}
+            >
+              {form.formState.isSubmitSuccessful && (
+                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+              )}
               Create an account
             </Button>
-            {/* <Button variant='outline' className='w-full'>
-              Sign up with Google
-            </Button> */}
           </form>
         </Form>
         <div className='mt-4 text-center text-sm'>

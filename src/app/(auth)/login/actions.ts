@@ -4,25 +4,25 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 import { createClient } from "@/utils/supabase/server"
-
-export async function login(formData: FormData) {
+import { formSchema } from "@/utils/formSchema"
+type FormState = {
+    message: string
+}
+export async function loginAction(
+    prevState: any,
+    formData: FormData,
+): Promise<FormState> {
     const supabase = createClient()
-
-    // type-casting here for convenience
-    // in practice, you should validate your inputs
+    const convertedFormData = Object.fromEntries(formData)
+    const parsed = formSchema.safeParse(convertedFormData)
     const data = {
-        email: formData.get("email") as string,
-        password: formData.get("password") as string,
+        email: parsed.data?.email ?? "",
+        password: parsed.data?.password ?? "",
     }
-    console.log("🚀 ~ login ~ data:", data)
-
     const { error } = await supabase.auth.signInWithPassword(data)
-    console.log("🚀 ~ login ~ error:", error)
-
     if (error) {
-        redirect("/error")
+        console.log("🚀 ~ error:", error)
     }
-
     revalidatePath("/")
     redirect("/")
 }

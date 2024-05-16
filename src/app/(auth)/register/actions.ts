@@ -9,26 +9,24 @@ import { formSchema } from "@/utils/formSchema"
 export type FormState = {
     message: string
 }
-export async function signup(
+export async function signupAction(
     prevState: FormState,
     formData: FormData,
 ): Promise<FormState> {
-    return new Promise((resolve, reject) => {
-        // Simulate a delay with setTimeout
-        setTimeout(() => {
-            const convertedFormData = Object.fromEntries(formData)
-            const parsed = formSchema.safeParse(convertedFormData)
-            console.log("🚀 ~ signup ~ parsed:", parsed)
+    const supabase = createClient()
+    const convertedFormData = Object.fromEntries(formData)
+    const parsed = formSchema.safeParse(convertedFormData)
+    const data = {
+        email: parsed.data?.email ?? "",
+        password: parsed.data?.password ?? "",
+    }
+    console.log("🚀 ~ data:", data)
 
-            // Add your signup logic here...
-
-            // If signup is successful, resolve the promise
-            resolve({
-                message: "done",
-            })
-
-            // If there's an error during signup, reject the promise
-            // reject(new Error('Signup failed'));
-        }, 2000) // 2 seconds delay
-    })
+    const { error } = await supabase.auth.signUp(data)
+    if (error) {
+        console.log("🚀 ~ error:", error)
+        redirect("/error")
+    }
+    revalidatePath("/")
+    redirect("/")
 }
