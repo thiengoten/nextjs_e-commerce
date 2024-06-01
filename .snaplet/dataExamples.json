@@ -55,6 +55,10 @@
     ]
   },
   {
+    "shape": "IMAGE_URL",
+    "examples": ["https://loremflickr.com/640/480"]
+  },
+  {
     "shape": "POST_TITLE",
     "examples": [
       "How to Maximize Your Productivity with Time Management Techniques",
@@ -114,7 +118,66 @@
     "examples": []
   },
   {
+    "shape": "COMMERCE_PRODUCT_NAME",
+    "examples": [
+      "Ergonomic Fresh Hat",
+      "Ergonomic Plastic Pizza",
+      "Modern Bronze Salad",
+      "Modern Metal Computer",
+      "Unbranded Frozen Bacon",
+      "Elegant Steel Mouse",
+      "Generic Plastic Chips",
+      "Gorgeous Fresh Pants",
+      "Handcrafted Steel Fish",
+      "Sleek Granite Chips",
+      "Licensed Soft Pizza",
+      "Intelligent Cotton Soap",
+      "Ergonomic Bronze Chips",
+      "Tasty Wooden Table",
+      "Generic Concrete Mouse",
+      "Ergonomic Concrete Ball",
+      "Oriental Soft Salad",
+      "Oriental Plastic Bike",
+      "Bespoke Cotton Ball",
+      "Incredible Rubber Car",
+      "Oriental Steel Bike",
+      "Electronic Plastic Shoes",
+      "Recycled Concrete Chair",
+      "Handmade Frozen Pizza",
+      "Awesome Plastic Bacon",
+      "Intelligent Plastic Mouse",
+      "Unbranded Steel Salad",
+      "Elegant Plastic Pizza",
+      "Unbranded Concrete Shirt",
+      "Unbranded Cotton Tuna",
+      "Fantastic Cotton Car",
+      "Rustic Rubber Sausages",
+      "Handmade Rubber Fish",
+      "Oriental Metal Computer",
+      "Generic Concrete Table",
+      "Handmade Wooden Cheese",
+      "Recycled Metal Salad",
+      "Fantastic Bronze Computer",
+      "Small Steel Soap",
+      "Licensed Frozen Chicken",
+      "Unbranded Plastic Ball",
+      "Licensed Bronze Sausages",
+      "Practical Concrete Gloves",
+      "Ergonomic Granite Bacon",
+      "Practical Concrete Chips",
+      "Unbranded Plastic Fish",
+      "Elegant Granite Tuna",
+      "Gorgeous Rubber Cheese",
+      "Fantastic Plastic Salad",
+      "Awesome Wooden Car"
+    ]
+  },
+  {
     "shape": "EMAIL",
+    "examples": []
+  },
+  {
+    "shape": "HASH",
     "examples": []
   },
   {
@@ -206,6 +269,58 @@
       "Life Update: Buying a New Home",
       "My Favorite Podcasts for Entrepreneurs",
       "Best Apps for Learning a New Language"
+    ]
+  },
+  {
+    "input": "public products image_url",
+    "examples": [
+      "https://cdn.example.com/products/widget-12345-large.jpg",
+      "https://images.example.net/products/small/widget-67890.jpg",
+      "https://example.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/w/i/widget-34567.jpg",
+      "https://cdn.example.io/products/large/widget-11111.jpg",
+      "https://example.com/images/products/widget-22222.jpg"
+    ]
+  },
+  {
+    "input": "public products name",
+    "examples": [
+      "SmartFit Yoga Mat",
+      "Protein Power Shake",
+      "Amazon Echo Show 5",
+      "Nike Air Max 270 React",
+      "Fujifilm Instax Mini 9",
+      "Samsung 4K UHD TV",
+      "Apple AirPods Pro",
+      "The North Face Backpack",
+      "Sony Wireless Headphones",
+      "Coffee Maker by Ninja",
+      "Canon EOS Camera",
+      "Instant Pot Pressure Cooker",
+      "LG 24 cu. ft. Refrigerator",
+      "Adidas Ultraboost 21",
+      "HP Envy x360 Laptop",
+      "KitchenAid Stand Mixer",
+      "Sony Bravia 4K TV",
+      "Google Pixel 4a",
+      "Nike Air Force 1",
+      "The North Face Thermoball",
+      "Dell XPS 13 Laptop",
+      "Whirlpool Refrigerator",
+      "Canon PIXMA Printer",
+      "Fossil Gen 5 Smartwatch",
+      "Under Armour HOVR Phantom",
+      "Samsonite Omni PC Hardside Spinner",
+      "Brother Sewing Machine",
+      "Samsung Galaxy Tab S7",
+      "ASUS ROG Zephyrus Laptop",
+      "Beats Solo Pro Headphones",
+      "Levi's 501 Original Fit Jeans",
+      "Bose QuietComfort Earbuds",
+      "Apple Watch Series 7",
+      "KitchenAid Toaster Oven",
+      "Sony RX100 VII Camera",
+      "HP Pavilion Gaming Laptop",
+      "Calvin Klein Slim Fit Jeans"
     ]
   },
   {

@@ -23,6 +23,28 @@
   },
   {
     "schemaName": "public",
+    "tableName": "products",
+    "predictions": [
+      {
+        "input": "public products image_url",
+        "column": "image_url",
+        "shape": "IMAGE_URL",
+        "confidence": 0.928799033164978,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public products name",
+        "column": "name",
+        "shape": "COMMERCE_PRODUCT_NAME",
+        "confidence": 0.9182306528091431,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "public",
     "tableName": "users_table",
     "predictions": [
       {
