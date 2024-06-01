@@ -11,8 +11,11 @@ export default defineConfig({
   select: [
     // We don't alter any extensions tables that might be owned by extensions
     "!*",
+    "!*public.__drizzle_migrations",
     // We want to alter all the tables under public schema
+    "public*",
     "public.posts_table",
     "public.users_table",
+    "public.products",
   ],
 })
